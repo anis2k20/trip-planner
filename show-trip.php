@@ -23,6 +23,16 @@ $result = mysqli_query($conn, $query);
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
+    <script type="text/javascript">
+    function updateItem(id) {
+        window.location.href = 'update_item.php?id=' + id;
+    }
+
+    function deleteItem(id) {
+        window.location.href = 'delete.php?id=' + id;
+    }
+    </script>
 </head>
 
 <body class="bg-gray-100">
@@ -86,7 +96,8 @@ $result = mysqli_query($conn, $query);
                     </svg> <?= htmlspecialchars($row['activities']) ?></p>
                 <div class="flex items-center gap-2">
                     <button class="border p-1 px-3 border-black rounded">Edit</button>
-                    <button class="border p-1 px-3 border-black rounded">Delete</button>
+                    <button class="border p-1 px-3 border-black rounded" type='button'
+                        onclick="deleteItem(<?= $row['id'] ?>)">Delete</button>
                 </div>
 
             </div>
