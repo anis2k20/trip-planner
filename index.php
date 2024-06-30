@@ -15,11 +15,13 @@
 
         $query = "INSERT INTO plans(destination, dates, budget, accommodation, transportation, companions, activities) VALUES ('$destination', '$dates', '$budget', '$accommodation', '$transportation', '$companions', '$activities')";
 
-
         $data = mysqli_query($conn, $query);
 
         if($data){
-            echo "Data inserted successfully";
+            echo "<script type='text/javascript'>
+                alert('Trip successfully added.');
+                window.location.href = 'show-trip.php';
+              </script>";
         }
 
     }
